@@ -107,6 +107,14 @@ leads-dashboard/
 3. `pip install fastapi uvicorn python-multipart`
 4. `leadpipe` zainstalowane w tym samym venv co dashboard (lub w PYTHONPATH)
 
+### Zmienne środowiskowe
+
+| Zmienna | Domyślna | Opis |
+|---|---|---|
+| `LEADPIPE_ROOT` | `/tmp/leadpipe-t0` | Ścieżka do repo leadpipe (dodawana do sys.path) |
+| `LEADPIPE_STATE` | `.leadpipe/state.json` | Ścieżka do pliku stanu JSON |
+| `LEADPIPE_RULES` | (auto z pakietu) | Ścieżka do katalogu z rulesetami YAML |
+
 ### Kroki wdrożenia
 
 ```bash
