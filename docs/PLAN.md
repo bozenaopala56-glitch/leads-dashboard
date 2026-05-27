@@ -145,7 +145,9 @@ Przygotować wdrożenie dashboardu bez ruszania systemów spoza leadpipe.
 - Frontend otwiera `/leads`, `/lead/:id`, `/pipeline`, `/rulesets`.
 - `leadpipe pipeline` uruchomiony z UI aktualizuje ten sam state, który pokazuje tabela.
 
-## Phase 2 / Future scope
+## Phase 2: Future Scope
+
+Pełny plan implementacji Phase 2 jest w [FUTURE_SCOPE.md](/tmp/leads-dashboard/docs/FUTURE_SCOPE.md).
 
 Te prace są jawnie poza realistycznym Phase 1:
 
