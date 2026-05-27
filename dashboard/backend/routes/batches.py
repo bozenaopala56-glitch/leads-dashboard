@@ -18,7 +18,7 @@ def _batch_id_for(lead: Any) -> str:
 
 
 @router.get("")
-def list_batches(store: StateStore = Depends(get_state_store)) -> dict[str, list[dict[str, Any]]]:
+def list_batches(store: StateStore = Depends(get_state_store)) -> dict[str, Any]:
     snapshot = store.load_snapshot()
     grouped: dict[str, list[Any]] = defaultdict(list)
     for lead in snapshot.leads:
@@ -37,7 +37,7 @@ def list_batches(store: StateStore = Depends(get_state_store)) -> dict[str, list
             }
         )
     items.sort(key=lambda item: item["id"])
-    return {"items": items}
+    return {"items": items, "total": len(items)}
 
 
 @router.post("", status_code=status.HTTP_201_CREATED)

@@ -195,10 +195,15 @@ tbody tr.active {
 }
 
 .empty,
+.error,
 code,
 pre,
 dd {
   color: var(--muted);
+}
+
+.error {
+  color: var(--warn);
 }
 
 dl {

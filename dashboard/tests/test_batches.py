@@ -7,7 +7,7 @@ def test_get_batches_returns_empty_list(api_client):
     response = api_client.get("/api/batches")
 
     assert response.status_code == 200
-    assert response.json() == {"items": []}
+    assert response.json() == {"items": [], "total": 0}
 
 
 def test_get_batches_groups_leads_by_batch_id(api_client, write_state, sample_lead_json):
