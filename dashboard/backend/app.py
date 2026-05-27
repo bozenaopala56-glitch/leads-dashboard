@@ -1,12 +1,13 @@
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 
-LEADPIPE_ROOT = Path("/tmp/leadpipe-t0")
+LEADPIPE_ROOT = Path(os.environ.get("LEADPIPE_ROOT", "/tmp/leadpipe-t0"))
 if LEADPIPE_ROOT.exists() and str(LEADPIPE_ROOT) not in sys.path:
     sys.path.insert(0, str(LEADPIPE_ROOT))
 DASHBOARD_ROOT = Path(__file__).resolve().parents[1]

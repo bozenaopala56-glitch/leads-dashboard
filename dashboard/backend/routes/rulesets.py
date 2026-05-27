@@ -12,7 +12,15 @@ logger = logging.getLogger(__name__)
 
 
 def rules_dir() -> Path:
-    return Path(os.environ.get("LEADPIPE_RULES", "/tmp/leadpipe-t0/leadpipe/rules"))
+    # Prefer LEADPIPE_RULES env var; fallback to leadpipe package rules/ directory
+    env_path = os.environ.get("LEADPIPE_RULES")
+    if env_path:
+        return Path(env_path)
+    try:
+        import leadpipe as _lp
+        return Path(_lp.__file__).resolve().parent / "rules"
+    except Exception:
+        return Path("leadpipe/rules")
 
 
 def _safe_rules_dir() -> Path:

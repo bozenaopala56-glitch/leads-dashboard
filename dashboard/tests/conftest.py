@@ -1,13 +1,14 @@
 from __future__ import annotations
 
 import json
+import os
 import sys
 from pathlib import Path
 
 import pytest
 from fastapi.testclient import TestClient
 
-LEADPIPE_ROOT = Path("/tmp/leadpipe-t0")
+LEADPIPE_ROOT = Path(os.environ.get("LEADPIPE_ROOT", "/tmp/leadpipe-t0"))
 if str(LEADPIPE_ROOT) not in sys.path:
     sys.path.insert(0, str(LEADPIPE_ROOT))
 DASHBOARD_ROOT = Path(__file__).resolve().parents[1]
