@@ -170,6 +170,30 @@ tbody tr.active {
   padding: 10px 0;
 }
 
+.ruleset-list,
+.override-form {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+}
+
+.ruleset-list button {
+  border-color: var(--line);
+  background: #fff;
+  color: var(--text);
+  text-align: left;
+}
+
+.override-form {
+  padding: 0;
+  grid-template-columns: 1fr 1fr;
+}
+
+.override-form input,
+.override-form button {
+  grid-column: 1 / -1;
+}
+
 .empty,
 code,
 pre,
