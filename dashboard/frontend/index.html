@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>leadpipe dashboard</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>leadpipe</h1>
+        <p id="health">checking API</p>
+      </div>
+      <form id="import-form" class="import-form">
+        <input id="csv-file" type="file" name="file" accept=".csv,text/csv" />
+        <button type="submit">Import CSV</button>
+      </form>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Batches</h2>
+          <button id="refresh" type="button">Refresh</button>
+        </div>
+        <div id="batches" class="batch-list"></div>
+      </section>
+
+      <section class="panel leads-panel">
+        <div class="panel-header">
+          <h2>Leads</h2>
+          <select id="action-filter" aria-label="Decision action">
+            <option value="">All actions</option>
+            <option value="send">Send</option>
+            <option value="manual_review">Manual review</option>
+            <option value="t2_required">T2 required</option>
+            <option value="t2_optional">T2 optional</option>
+            <option value="retry">Retry</option>
+            <option value="skip">Skip</option>
+          </select>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Domain</th>
+                <th>Company</th>
+                <th>T0 score</th>
+                <th>T1 signals</th>
+                <th>Decision</th>
+                <th>Confidence</th>
+              </tr>
+            </thead>
+            <tbody id="leads"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel detail-panel">
+        <div class="panel-header">
+          <h2>Lead detail</h2>
+          <button id="export" type="button">Export CSV</button>
+        </div>
+        <div id="lead-detail" class="detail-empty">Select a lead</div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Decisions</h2>
+        </div>
+        <div id="decisions" class="decision-list"></div>
+      </section>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
